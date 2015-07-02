@@ -28,21 +28,20 @@ function _react() {
         },
 
         render: function() {
-            var self = this;
             var items = this.props.data.map(function(data){
                 return (
                     <div className="row" key={data.id}>
                         <div className="col-md-12 test-data">
                             <Blah
-                                selected={self.state.selected === data.id}
-                                onClick={self.select}
+                                selected={this.state.selected === data.id}
+                                onClick={this.select}
                                 id={data.id}
                                 label={data.label}
                             />
                         </div>
                     </div>
                 );
-            });
+            }, this);
             return <div>{items}</div>;
         }
     });

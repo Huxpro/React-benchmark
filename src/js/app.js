@@ -34,7 +34,6 @@ function _react() {
         },
 
         render: function render() {
-            var self = this;
             var items = this.props.data.map(function (data) {
                 return React.createElement(
                     'div',
@@ -43,14 +42,14 @@ function _react() {
                         'div',
                         { className: 'col-md-12 test-data' },
                         React.createElement(Blah, {
-                            selected: self.state.selected === data.id,
-                            onClick: self.select,
+                            selected: this.state.selected === data.id,
+                            onClick: this.select,
                             id: data.id,
                             label: data.label
                         })
                     )
                 );
-            });
+            }, this);
             return React.createElement(
                 'div',
                 null,
